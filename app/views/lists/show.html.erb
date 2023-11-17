@@ -1,0 +1,10 @@
+<% @list.bookmarks.each do |bookmark|%>
+  <strong><%= bookmark.movie.title %></strong>
+  <img src="<%= bookmark.movie.poster_url %>" style="width:500px;" alt="">
+   <%= link_to "Delete",
+    bookmark_path(bookmark),
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+  %>
+<% end %>
+
+<li><%= link_to "Add a movie to your list",   new_list_bookmark_path(@list) %></li>
